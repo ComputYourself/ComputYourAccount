@@ -9,7 +9,7 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
-    _layout(new QStackedLayout(this))
+    _layout(new QStackedLayout())
 {
     ui->setupUi(this);
     ui->centralWidget->setLayout(_layout);
@@ -20,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 void MainWindow::on_infosPerso_triggered ()
 {
-    dynamic_cast<QStackedLayout*>(this->ui->centralWidget->layout())->setCurrentIndex(0);
+    _layout->setCurrentIndex(0);
 }
 
 MainWindow::~MainWindow() {
