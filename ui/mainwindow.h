@@ -20,7 +20,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    QWidget* currentWidget;
 };
 
 #endif // MAINWINDOW_H

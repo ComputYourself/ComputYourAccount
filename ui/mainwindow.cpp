@@ -13,17 +13,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->centralWidget->setLayout(new QStackedLayout());
 
-    this->currentWidget = new QWidget(this);
-
-    ui->centralWidget->layout()->addWidget(currentWidget);
+    ui->centralWidget->layout()->addWidget(new InfosPerso);
     connect(ui->actionInfos_Perso, SIGNAL(triggered(bool)), this, SLOT(on_infosPerso_triggered()));
 }
 
 void MainWindow::on_infosPerso_triggered () {
-    if (this->currentWidget != nullptr)
-        delete this->currentWidget;
-    this->currentWidget = new InfosPerso();
-    this->ui->centralWidget->layout()->addWidget(currentWidget);
+    dynamic_cast<QStackedLayout*>(this->ui->centralWidget->layout())->setCurrentIndex(0);
 }
 
 MainWindow::~MainWindow() {
