@@ -9,7 +9,7 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
-    _layout(new QStackedLayout())
+    _layout(new QStackedLayout)
 {
     ui->setupUi(this);
     ui->centralWidget->setLayout(_layout);
@@ -23,6 +23,8 @@ void MainWindow::on_infosPerso_triggered ()
     _layout->setCurrentIndex(0);
 }
 
-MainWindow::~MainWindow() {
+MainWindow::~MainWindow()
+{
     delete ui;
+    delete _layout;
 }
