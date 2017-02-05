@@ -12,7 +12,7 @@ class InfosPerso : public QWidget
     Q_OBJECT
 
 public:
-    explicit InfosPerso(QWidget *parent = 0);
+    explicit InfosPerso(QWidget *parent = nullptr);
     ~InfosPerso();
 
 private slots:
