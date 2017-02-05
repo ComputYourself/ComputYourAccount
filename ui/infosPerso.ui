@@ -94,6 +94,17 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>SearchField</tabstop>
+  <tabstop>searchButton</tabstop>
+  <tabstop>lastNameField</tabstop>
+  <tabstop>firstNameField</tabstop>
+  <tabstop>pseudoField</tabstop>
+  <tabstop>accountField</tabstop>
+  <tabstop>editButton</tabstop>
+  <tabstop>revertButton</tabstop>
+  <tabstop>saveButton</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
