@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QStackedLayout>
+#include <QSqlDatabase>
 
 namespace Ui {
 class MainWindow;
