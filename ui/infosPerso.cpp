@@ -6,11 +6,11 @@ InfosPerso::InfosPerso(QWidget *parent) :
     ui(new Ui::InfosPerso)
 {
     ui->setupUi(this);
-
     connect(ui->searchButton, SIGNAL(released()), this, SLOT(on_searchButton_released()));
 }
 
-void InfosPerso::on_searchButton_released() {
+void InfosPerso::on_searchButton_released()
+{
 
 }
 

@@ -5,19 +5,21 @@
 #include <QSqlDriver>
 #include <QtCore/QtCore>
 #include <QLayout>
-#include <QStackedLayout>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow){
+    ui(new Ui::MainWindow),
+    _layout(new QStackedLayout(this))
+{
     ui->setupUi(this);
-    ui->centralWidget->setLayout(new QStackedLayout());
+    ui->centralWidget->setLayout(_layout);
 
-    ui->centralWidget->layout()->addWidget(new InfosPerso);
+    _layout->addWidget(new InfosPerso);
     connect(ui->actionInfos_Perso, SIGNAL(triggered(bool)), this, SLOT(on_infosPerso_triggered()));
 }
 
-void MainWindow::on_infosPerso_triggered () {
+void MainWindow::on_infosPerso_triggered ()
+{
     dynamic_cast<QStackedLayout*>(this->ui->centralWidget->layout())->setCurrentIndex(0);
 }
 

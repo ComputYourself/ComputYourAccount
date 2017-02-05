@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QStackedLayout>
 
 namespace Ui {
 class MainWindow;
@@ -20,6 +21,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    QStackedLayout* _layout;
 };
 
 #endif // MAINWINDOW_H
