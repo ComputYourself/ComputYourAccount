@@ -23,8 +23,28 @@ void MainWindow::on_infosPerso_triggered ()
     _layout->setCurrentIndex(0);
 }
 
-MainWindow::~MainWindow()
-{
+
+MainWindow::~MainWindow() {
     delete ui;
     delete _layout;
+}
+
+void plop () {
+    qDebug() << QSqlDatabase::drivers();
+    qDebug() << QSqlDatabase::isDriverAvailable("QMYSQL");
+    this->bdd = QSqlDatabase::addDatabase("QMYSQL", "Ligue");
+    qDebug() << bdd.connectionName();
+    this->bdd.setHostName("localhost");
+    this->bdd.setPort(3306);
+    this->bdd.setDatabaseName("LigueKaladesh");
+    this->bdd.setUserName("root");
+    this->bdd.setPassword("root");
+    if (this->bdd.open()) {
+        ui->actionConnecter->setEnabled(false);
+        ui->actionDeconnecter->setEnabled(true);
+        ui->menuJoueurs->setEnabled(true);
+        ui->menuResultats->setEnabled(true);
+
+        switchCentralWidget(new QWidget());
+    }
 }
