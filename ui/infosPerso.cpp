@@ -7,7 +7,7 @@ InfosPerso::InfosPerso(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QObject::connect(ui->searchButton, SIGNAL(released()), this, SLOT(on_searchButton_released()));
+    connect(ui->searchButton, SIGNAL(released()), this, SLOT(on_searchButton_released()));
 }
 
 void InfosPerso::on_searchButton_released() {
