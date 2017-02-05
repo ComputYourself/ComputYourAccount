@@ -9,7 +9,8 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
-    _layout(new QStackedLayout)
+    _layout(new QStackedLayout),
+    _db()
 {
     ui->setupUi(this);
     ui->centralWidget->setLayout(_layout);
@@ -29,7 +30,25 @@ MainWindow::~MainWindow() {
     delete _layout;
 }
 
-void plop () {
+void MainWindow::connect_to_db(QString& host, int port, QString &user, QString &pass)
+{
+    _db = QSqlDatabase::addDatabase("QMYSQL", "ComputYourAccount");
+    _db.setHostName(host);
+    _db.setPort(port);
+    _db.setDatabaseName("ComputYourAccount");
+    _db.setUserName(user);
+    _db.setPassword(pass);
+    if (_db.open())
+    {
+        //OK
+    }
+    else
+    {
+        //FAIL
+    }
+}
+
+/*void plop () {
     qDebug() << QSqlDatabase::drivers();
     qDebug() << QSqlDatabase::isDriverAvailable("QMYSQL");
     this->bdd = QSqlDatabase::addDatabase("QMYSQL", "Ligue");
@@ -47,4 +66,4 @@ void plop () {
 
         switchCentralWidget(new QWidget());
     }
-}
+}*/
