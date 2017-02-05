@@ -15,8 +15,12 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+private slots:
+    void on_infosPerso_triggered ();
+
 private:
     Ui::MainWindow *ui;
+    QWidget* currentWidget;
 };
 
 #endif // MAINWINDOW_H
