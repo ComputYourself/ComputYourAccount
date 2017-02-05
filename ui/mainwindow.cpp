@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow) , currentWidget(new QWidget(this)){
     ui->setupUi(this);
     ui->centralWidget->layout()->addWidget(currentWidget);
-    QObject::connect(ui->actionInfos_Perso, SIGNAL(triggered(bool)), this, SLOT(on_infosPerso_triggered()));
+    connect(ui->actionInfos_Perso, SIGNAL(triggered(bool)), this, SLOT(on_infosPerso_triggered()));
 }
 
 void MainWindow::on_infosPerso_triggered () {
