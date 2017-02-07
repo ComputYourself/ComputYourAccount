@@ -15,6 +15,12 @@ public:
     explicit dbConnection(QWidget *parent = 0);
     ~dbConnection();
 
+signals:
+    void request_connection_to_db (QString hostname, int port, QString user, QString password);
+
+private slots:
+    void forward_connection_to_db();
+
 private:
     Ui::dbConnection *ui;
 };

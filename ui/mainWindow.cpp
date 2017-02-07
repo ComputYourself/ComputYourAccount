@@ -23,6 +23,8 @@ void MainWindow::on_infosPerso_triggered ()
 
 void MainWindow::on_connection_to_db_requested (QString hostname, int port, QString user, QString password)
 {
+    qDebug() << QSqlDatabase::drivers();
+    qDebug() << QSqlDatabase::isDriverAvailable("QMYSQL");
     this->_bdd = QSqlDatabase::addDatabase("QMYSQL", "ComputYourAccount");
     this->_bdd.setHostName(hostname);
     this->_bdd.setPort(port);
@@ -30,6 +32,8 @@ void MainWindow::on_connection_to_db_requested (QString hostname, int port, QStr
     this->_bdd.setUserName(user);
     this->_bdd.setPassword(password);
     if (this->_bdd.open()) {
+        int i = _layout->addWidget(new InfosPerso(this));
+        _layout->setCurrentIndex(i);
         qDebug() << "Tout c'est bien passé";
     } else {
         qDebug() << "Ca c'est mal passé";

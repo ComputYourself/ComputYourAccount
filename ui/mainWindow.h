@@ -22,8 +22,9 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+
 public slots:
-    void on_connection_to_db_requested ();
+    void on_connection_to_db_requested (QString hostname, int port, QString user, QString password);
 
 private slots:
     void on_infosPerso_triggered ();
