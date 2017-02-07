@@ -3,11 +3,6 @@
 #include "infosPerso.h"
 #include "dbConnection.h"
 #include "accueil.h"
-#include <QSqlError>
-#include <QSqlDriver>
-#include <QtCore/QtCore>
-#include <QLayout>
-
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
@@ -26,6 +21,20 @@ void MainWindow::on_infosPerso_triggered ()
     _layout->setCurrentIndex(i);
 }
 
+void MainWindow::on_connection_to_db_requested (QString hostname, int port, QString user, QString password)
+{
+    this->_bdd = QSqlDatabase::addDatabase("QMYSQL", "ComputYourAccount");
+    this->_bdd.setHostName(hostname);
+    this->_bdd.setPort(port);
+    this->_bdd.setDatabaseName("ComputYourAccount");
+    this->_bdd.setUserName(user);
+    this->_bdd.setPassword(password);
+    if (this->_bdd.open()) {
+        qDebug() << "Tout c'est bien passé";
+    } else {
+        qDebug() << "Ca c'est mal passé";
+    }
+}
 
 MainWindow::~MainWindow() {
     delete ui;
