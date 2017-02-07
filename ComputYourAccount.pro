@@ -13,17 +13,18 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-    ui/mainwindow.cpp\
     ui/infosPerso.cpp \
     ui/dbConnection.cpp \
-    ui/accueil.cpp
+    ui/accueil.cpp \
+    ui/mainWindow.cpp
 
-HEADERS  += ui/mainwindow.h\
-    ui/infosPerso.h \
+HEADERS  += ui/infosPerso.h \
     ui/dbConnection.h \
-    ui/accueil.h
+    ui/accueil.h \
+    ui/mainWindow.h
 
 FORMS    += ui/mainwindow.ui\
     ui/infosPerso.ui \
     ui/dbConnection.ui \
-    ui/accueil.ui
+    ui/accueil.ui \
+    ui/mainwindow.ui\
